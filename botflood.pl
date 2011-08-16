@@ -49,14 +49,14 @@ sub botflood {
 			my $size = @{$buffer{$key}};
 			if($size) {
 				$server->send_raw("PRIVMSG OperServ :akill add ".pop(@{$buffer{$key}})." flooder killed by botflood.pl");
-				sleep 1;
+				select (undef, undef, undef, .25);
 			}
 		}
 	}
 	else {
 		foreach(@{$buffer{$key}}) {
-			$server->send_raw("PRIVMSG OperServ :akill ".$_." flooder killed by botflood.pl");
-			sleep 1;
+			$server->send_raw("PRIVMSG OperServ :akill add ".$_." flooder killed by botflood.pl");
+			select (undef, undef, undef, .25);
 		}
 		@{$buffer{$key}} = ();
 	}
