@@ -5,7 +5,7 @@ botflood.pl is a script to akill botnets that join channels on IRC to ruin every
 
 Usage is simple. Put the script in `~/.irssi/scripts/` and type `/script load botflood.pl` in your running irssi client. From here, just wait for a botflood and type `/botflood` in the flooded channel to ban the last 25 joins, or `botflood <number>` where <number> is the number of offenders that joined. **BE CAREFUL** with this function, as you don't want to accidentally akill people who don't deserve it.
 
-Additional functionality maps nicks to their hostmasks - in this way, you can /akill <nick> and it will akill the host.
+Additional functionality maps nicks to their hostmasks - in this way, you can `/akill <nick>` and it will akill the host.
 
 ## How it works
 
