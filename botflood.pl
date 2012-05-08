@@ -18,6 +18,7 @@ my %buffer;
 
 sub msg_join {
 	my ($server, $channame, $nick, $host) = @_;
+	if($channame == "#2600") {
 	my $key = $server->{tag} . $channame;
 	$host =~ s/(.*)\@/\*\@/;
 	if(exists $buffer{ $key }) {
@@ -32,6 +33,7 @@ sub msg_join {
 	else {
 		push @{ $buffer{ $key }}, $host;
 	}
+	}
 }
 
 sub akill {
@@ -44,6 +46,7 @@ sub akill {
 	$r =~ s/(.*)\@/\*\@/;
 	$server->send_raw("PRIVMSG OperServ :akill add ".$r." killed (from ".$chan->{name}." (".$args."))");
 }
+
 
 sub botflood {
 	my ($args, $server, $chan) = @_;
