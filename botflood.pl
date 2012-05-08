@@ -18,7 +18,7 @@ my %buffer;
 
 sub msg_join {
 	my ($server, $channame, $nick, $host) = @_;
-	if($channame == "#2600") {
+	if($channame == "") { # MUST UPDATE THIS CHANNEL NAME
 	my $key = $server->{tag} . $channame;
 	$host =~ s/(.*)\@/\*\@/;
 	if(exists $buffer{ $key }) {
